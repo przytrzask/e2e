@@ -339,7 +339,7 @@ test.describe('control inventory', () => {
   test('tap({ count: 3 }) lands three presses', async ({ screen }) => {
     await showSection(screen, 'Gestures');
     await screen.getByRole('button', 'Double-tap me').tap({ count: 3 });
-    await expect(screen.getByTestId('tap-count')).toContainText('3 taps');
+    await expect(screen.getByTestId('tap-count')).toHaveText(/^3 taps, \d+ ms apart$/);
   });
 
   // Android bounds and points are the screen's physical pixels: agent-device
